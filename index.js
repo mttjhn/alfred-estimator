@@ -7,8 +7,9 @@ if (alfy.input) {
     var items = [];
 
     // Create a expressions that can be used to evaluate stuff
-    const devDays = math.compile('(a/.52)/8');
-    const devHrs = math.compile('(a/.52)');
+    const devDays = math.compile('((a/.525)/8)*4');
+    const devHrs = math.compile('(a/.525)*4');
+    const unRound = math.compile('b/4');
 
     try {
         // attempt to calculate using the input
@@ -21,13 +22,13 @@ if (alfy.input) {
     }
 
     if (result && !isNaN(result)) {
-        var devDaysCalc = math.round(devDays.eval({a: result}), 2);
+        var devDaysCalc = unRound.eval({b: math.round(devDays.eval({a: result}))});
         resultItems.push({ 
             item: 'days', 
             value: devDaysCalc
         });
 
-        var devHrsCalc = math.round(devHrs.eval({a: result}), 2);
+        var devHrsCalc = unRound.eval({b: math.round(devHrs.eval({a: result}))});
         resultItems.push({
             item: 'hours',
             value: devHrsCalc
