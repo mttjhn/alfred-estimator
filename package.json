@@ -1,0 +1,19 @@
+{
+  "name": "alfred-estiamtor",
+  "version": "1.0.0",
+  "description": "Alfred workflow to do simple estimation calculations",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "author": {
+    "name": "Matthew Johnson",
+    "email": "matthew@mttjhn.com",
+    "url": "mttjhn.com"
+  },
+  "dependencies": {
+    "alfy": "*",
+    "mathjs": "^5.10.3"
+  }
+}
